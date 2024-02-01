@@ -3,31 +3,28 @@
 let nombre = prompt("Ingresa tu nombre")
 alert("Bienvenido " + nombre)
 console.log("Bienvenido " + nombre)
-
-const pago = ['efectivo 20% descuento', 'transferencia 10% descuento', 'tarjeta 10% de recargo']
-alert(pago);
+let mediodepago = prompt("Ingresa el medio de pago: efectivo, transferencia o tarjeta");
 console.log("Elegi tu medio de pago: efectivo 20% descuento, transferencia 10% descuento, tarjeta 10% de recargo");
 
-let mediodepago = prompt("Ingresa el medio de pago: efectivo, transferencia o tarjeta");
-let importe = parseInt(prompt("Ingresa el monto total"));
+let efectivo = 0.80;
+let transferencia = 0.90;
+let tarjeta = 1.10;
+let importe = prompt("Importe a pagar");
 
+function retornarprecioapagar(importe) {
+  let importefinal;
 
-if((mediodepago =="efectivo")  &&  (importe !="")) {
-    let pagoefectivo = importe * 0.8;
-    alert("El importe a pagar es: " + pagoefectivo);
-    console.log("El importe a pagar es: " + pagoefectivo);
+  if (mediodepago === "efectivo") {
+    importefinal = importe * efectivo;
+  } else if (mediodepago === "transferencia") {
+    importefinal = importe * transferencia;
+  } else if (mediodepago === "tarjeta") {
+    importefinal = importe * tarjeta;
+  }
+
+  alert("El importe a pagar es: " + importefinal);
 }
 
-if( (mediodepago =="transferencia")  &&  (importe !="")) {
-    let pagotransferencia = importe * 0.9;
-    alert("El importe a pagar es: " + pagotransferencia);
-    console.log("El importe a pagar es: " + pagotransferencia);    
-} 
-
-if( (mediodepago =="tarjeta")  &&  (importe !="")) {
-    let pagotarjeta = importe * 1.10;
-    alert("El importe a pagar es: " + pagotarjeta);
-    console.log("El importe a pagar es: " + pagotarjeta);  
-} 
+retornarprecioapagar(importe);
 
 
