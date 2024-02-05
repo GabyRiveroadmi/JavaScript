@@ -1,30 +1,29 @@
-/*Calculadora por medio de pago donde el usuario puede ver el importe a pagar, segun el medio de pago elegido*/
 
-let nombre = prompt("Ingresa tu nombre")
-alert("Bienvenido " + nombre)
-console.log("Bienvenido " + nombre)
-let mediodepago = prompt("Ingresa el medio de pago: efectivo, transferencia o tarjeta");
-console.log("Elegi tu medio de pago: efectivo 20% descuento, transferencia 10% descuento, tarjeta 10% de recargo");
+let titulo = document.getElementById("titulo")
+titulo.innerHTML = "<h1>Calcula el precio final a pagar</h1"
 
 let efectivo = 0.80;
 let transferencia = 0.90;
 let tarjeta = 1.10;
-let importe = prompt("Importe a pagar");
+let importefinal = 0;
 
-function retornarprecioapagar(importe) {
-  let importefinal;
+const boton = document.getElementById("calcularResultado");
 
-  if (mediodepago === "efectivo") {
-    importefinal = importe * efectivo;
-  } else if (mediodepago === "transferencia") {
-    importefinal = importe * transferencia;
-  } else if (mediodepago === "tarjeta") {
-    importefinal = importe * tarjeta;
-  }
+boton.addEventListener("click", function() {
+    let mediodepago = document.getElementById("mediodepago").value;
+    let importe = document.getElementById("importe").value;
+    calcularResultado(importe, mediodepago);
+});
 
-  alert("El importe a pagar es: " + importefinal);
+function calcularResultado(importe, mediodepago) {
+
+    if (mediodepago === "efectivo") {
+        importefinal = importe * efectivo;
+    } else if (mediodepago === "transferencia") {
+        importefinal = importe * transferencia;
+    } else if (mediodepago === "credito") {
+        importefinal = importe * tarjeta;
+    }
+    
+    document.getElementById("resultado").value = importefinal.toFixed(2);
 }
-
-retornarprecioapagar(importe);
-
-

@@ -1,0 +1,17 @@
+
+
+body {
+    margin: 50px;
+    padding: 50px;
+    background-color: pink;
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.navbar-text {
+color: black;
+font-family: Arial, Helvetica, sans-serif;
+
+}
